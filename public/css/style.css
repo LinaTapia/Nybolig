@@ -20,8 +20,8 @@ nav.navbar {
   width: 100%;
   height: 65px;
   font-weight: 600;
-  font-size: 30px;
-  line-height: 30px;
+  font-size: 28px;
+  line-height: 28px;
   color: #FFFFFF; }
   .section-01__btn:hover {
     background: transparent;
@@ -44,6 +44,8 @@ nav.navbar {
   font-weight: 700;
   text-decoration: underline;
   cursor: pointer; }
+  .section-01__bajada--link:hover {
+    color: #7E9B9F; }
 
 .section-01__form {
   border-bottom: 3px solid #3BACB6;
@@ -64,9 +66,28 @@ nav.navbar {
 
 .section-01__placeholder {
   color: rgba(59, 172, 182, 0.74); }
+  .section-01__placeholder i {
+    color: #145F6C;
+    font-size: 18px; }
 
 .section-01__forget {
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
-  color: rgba(20, 95, 108, 0.48); }
+  color: rgba(20, 95, 108, 0.48);
+  cursor: pointer; }
+  .section-01__forget:hover {
+    color: #7E9B9F; }
+
+.section-01__error {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: #D12E2E; }
+
+@media only screen and (min-width: 1023px) {
+  section.section-01 {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; } }

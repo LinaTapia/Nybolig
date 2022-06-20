@@ -5,19 +5,19 @@
     }
 
     &__btn {
-        background: #3BACB6;
+        background: $btn-color;
         border-radius: 50px;
         width: 100%;
         height: 65px;
         font-weight: 600;
-        font-size: 30px;
-        line-height: 30px;
+        font-size: 28px;
+        line-height: 28px;
         color: #FFFFFF;
 
         &:hover {
             background: transparent;
-            border: 1px solid #3BACB6;
-            color: #3BACB6;
+            border: 1px solid $btn-color;
+            color: $btn-color;
         }
     }
 
@@ -25,34 +25,37 @@
         font-weight: 600;
         font-size: 28px;
         line-height: 34px;
-        color: #145F6C;
+        color: $title-color;
     }
 
     &__bajada {
         font-weight: 600;
         font-size: 18px;
         line-height: 22px;
-        color: rgba(20, 95, 108, 0.48);
+        color: $text-color;
     }
 
     &__bajada--link {
         font-weight: 700;
         text-decoration: underline;
         cursor: pointer;
+        &:hover{
+            color: $text-hover;
+        }
     }
 
     &__form {
-        border-bottom: 3px solid #3BACB6;
+        border-bottom: 3px solid $btn-color;
         border-top: 0;
         border-right: 0;
         border-left: 0;
         border-radius: 0;
-        color: #145F6C;
+        color: $title-color;
 
         &:focus {
             box-shadow: 0 0 0 0.25rem transparent;
-            color: #145F6C;
-            border-color: #3BACB6;
+            color: $title-color;
+            border-color: $btn-color;
         }
     }
     .form-floating>
@@ -65,12 +68,38 @@
 
     &__placeholder {
         color: rgba(59, 172, 182, 0.74);
+
+        i{
+            color: $title-color;
+            font-size: 18px;
+        }
     }
 
     &__forget {
         font-weight: 600;
         font-size: 20px;
         line-height: 24px;
-        color: rgba(20, 95, 108, 0.48);
+        color: $text-color;
+        cursor: pointer;
+            &:hover{
+                color: $text-hover;
+            }
+    }
+
+    &__error{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 16px;
+        color: #D12E2E;
+    }
+}
+
+
+@media only screen and (min-width: 1023px) {
+    section.section-01 {
+        min-height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
