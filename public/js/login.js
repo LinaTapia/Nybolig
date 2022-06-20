@@ -21,9 +21,7 @@ const usuariosPorDefecto = () => {
 
 usuariosPorDefecto();
 
-
-
-//Función para volver a 
+//Función para volver a desplegar formulario de login
 const login = () => {
     formulario.innerHTML = "";
     formulario.innerHTML += `
@@ -89,7 +87,7 @@ const cuenta = () => {
             Usuario</label>
     </div>
     <div class="form-floating mb-4">
-        <input type="text" class="form-control section-01__form" id="correoNuevo"
+        <input type="email" class="form-control section-01__form" id="correoNuevo"
             placeholder="correo">
         <label for="correoNuevo" class="section-01__placeholder"><i class="bi bi-envelope-fill"></i>
             E-mail</label>
