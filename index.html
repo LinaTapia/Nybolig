@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nybolig</title>
+    <!-- B5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- B5 Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <!-- CSS Propio -->
+    <link rel="stylesheet" href="./public/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/index.html">NYBOLIG</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="section-01">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-8">
+                        <img src="./public/img/bg-login.svg" alt="Login Background" class="section-01__bg">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <h2 class="section-01__titulo">Comienza a usar Nybolig</h2>
+                        <p class="section-01__bajada">No tienes cuenta? <span class="section-01__bajada--link">Créala
+                                aquí.</span></p>
+                        <div class="form-floating mb-4">
+                            <input type="text" class="form-control section-01__form" id="usuario" placeholder="Usuario">
+                            <label for="usuario" class="section-01__placeholder">Usuario</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control section-01__form" id="contrasenia" placeholder="Contraseña">
+                            <label for="contrasenia" class="section-01__placeholder">Contraseña</label>
+                        </div>
+                        <p class="section-01__forget text-center my-4 pb-2">¿Olvidaste tu Contraseña?</p>
+                        <button type="submit" class="btn d-flex align-items-center justify-content-center section-01__btn">Iniciar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- B5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
