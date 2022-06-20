@@ -37,7 +37,7 @@ const login = () => {
         <label for="contrasenia" class="section-01__placeholder"><i class="bi bi-lock-fill"></i> Contraseña</label>
     </div>
     <p class="section-01__error text-center pt-3 d-none" id="error"></p>
-    <p class="section-01__forget text-center my-4 pb-2">¿Olvidaste tu Contraseña?</p>
+    <p class="section-01__forget text-center my-4 pb-2" id="restablecer">¿Olvidaste tu Contraseña?</p>
     <a href="#" class="btn d-flex align-items-center justify-content-center section-01__btn" id="boton-login">Iniciar</a>`;
 
     //Login
@@ -73,6 +73,12 @@ const login = () => {
     crearCuenta.addEventListener("click", () => {
         cuenta();
 
+    });
+
+    //Restablecer Contraseña
+    const restCont = document.getElementById("restablecer");
+    restCont.addEventListener("click", () => {
+        restablecer();
     });
 }
 
@@ -133,6 +139,44 @@ const cuenta = () => {
         }
     });
 }
+
+const restablecer = () => {
+    formulario.innerHTML = "";
+    const tempComp = `
+    <h2 class="section-01__titulo">Restablece tu contraseña</h2>
+       <div class="form-floating my-4">
+            <input type="email" class="form-control section-01__form" id="ResCorreo"
+                placeholder="correo">
+            <label for="ResCorreo" class="section-01__placeholder"><i class="bi bi-envelope-fill"></i>
+                E-mail</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control section-01__form" id="ResContrasenia"
+                placeholder="Contraseña">
+            <label for="ResContrasenia" class="section-01__placeholder"><i class="bi bi-lock-fill"></i>
+                Contraseña</label>
+        </div>
+        <p class="section-01__error text-center py-3 d-none" id="errorRes"></p>
+        <a href="#" class="btn d-flex align-items-center justify-content-center section-01__btn mt-5"
+            id="boton-continuar">Continuar</a>`;
+    formulario.innerHTML += tempComp;
+
+    const contBoton = document.getElementById("boton-continuar");
+    const inputCorreo = document.getElementById("ResCorreo");
+    const inputContra = document.getElementById("ResContrasenia");
+
+    contBoton.addEventListener("click", () => {
+
+        let buscarCorreo = usuarios.find((usuario) => usuario.email === inputCorreo.value);
+        let buscarCont = usuarios.find((usuario) => usuario.contrasenia === inputContra.value);
+
+        if (buscarCorreo !== undefined || buscarCont !== undefined) {
+            console.log("hola");
+        }
+    });
+}
+
+
 
 // Iniciar con el formulario de login al cargar la página
 window.addEventListener("DOMContentLoaded", () => {

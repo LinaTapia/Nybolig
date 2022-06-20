@@ -1,12 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nybolig</title>
+    <!-- B5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- B5 Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <!-- CSS Propio -->
+    <link rel="stylesheet" href="./public/css/style.css">
 </head>
-<body>
-    <p>Hola</p>
+
+<body class="body">
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/index.html">NYBOLIG</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="section-hero pt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h2 class="section-hero__title mb-4">Procesos de Búsqueda</h2>
+                            <button class="section-hero__add d-flex align-items-center justify-content-between"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                                    class="bi bi-plus me-2"></i><span class="px-1">Agregar Proceso</span></button>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="section-hero__box">
+                            <div class="row justify-content-between">
+                                <div class="col-12 col-md-6">
+                                    <div class="d-md-flex align-items-center">
+                                        <p class="section-hero__txt mb-md-0">Buscar:</p>
+                                        <div class="form-floating my-3 my-md-0 mx-md-3">
+                                            <input type="text" class="form-control" id="cargo" placeholder="cargo">
+                                            <label for="cargo" class="section-01__placeholder">
+                                                Cargo</label>
+                                        </div>
+                                        <div class="form-floating my-3 my-md-0">
+                                            <input type="text" class="form-control" id="cliente" placeholder="cliente">
+                                            <label for="cliente" class="section-01__placeholder">
+                                                Cliente</label>
+                                        </div>
+                                        <a href="#"
+                                            class="section-hero__btn btn d-flex align-items-center justify-content-center mx-md-3"><i
+                                                class="bi bi-search"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="d-md-flex align-items-center mt-4 mt-md-0">
+                                        <p class="section-hero__txt mb-md-0 me-3">Filtrar:</p>
+                                        <select class="form-select" aria-label="Filtro Procesos">
+                                            <option selected class="text-center section-01__placeholder">- Selecciona
+                                                Filtro -</option>
+                                            <option value="1">Activo</option>
+                                            <option value="2">Cerrado</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-procesos mt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="procesos-tab" data-bs-toggle="tab"
+                                    data-bs-target="#procesos" type="button" role="tab" aria-controls="procesos"
+                                    aria-selected="true">Procesos <span
+                                        class="nav-link__contador nav-link__contador--procesos mx-2" id="todos-procesos">1</span></button>
+                            </li>
+                            <li class="nav-item nav-item--border" role="presentation">
+                                <button class="nav-link" id="activos-tab" data-bs-toggle="tab" data-bs-target="#activos"
+                                    type="button" role="tab" aria-controls="activos" aria-selected="false">Activos <span
+                                        class="nav-link__contador nav-link__contador--activos mx-2">1</span></button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="cerrados-tab" data-bs-toggle="tab"
+                                    data-bs-target="#cerrados" type="button" role="tab" aria-controls="cerrados"
+                                    aria-selected="false">Cerrados <span
+                                        class="nav-link__contador nav-link__contador--cerrados mx-2">1</span></button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="procesos" role="tabpanel"
+                                aria-labelledby="procesos-tab">
+                                <div class="row mt-4 mt-md-2 mb-4 align-items-center justify-content-center">
+                                    <div class="col-10 col-md-12" id="card-procesos">
+     
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="activos" role="tabpanel" aria-labelledby="activos-tab">alo
+                            </div>
+                            <div class="tab-pane fade" id="cerrados" role="tabpanel" aria-labelledby="cerrados-tab">ola
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Proceso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formulario">
+                        <div class="mb-3">
+                            <label for="cargoP" class="form-label">Cargo</label>
+                            <input class="form-control" type="text" id="cargoP" placeholder="Ej: Desarrollador WEB"
+                                required></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="clienteP" class="form-label">Cliente</label>
+                            <input class="form-control" type="text" id="clienteP" placeholder="Ej: Coca-Cola"
+                                required></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="requisitoP" class="form-label">Requisitos</label>
+                            <input class="form-control" type="text" id="requisitoP"
+                                placeholder="Ej: CSS3 - HTML5 - React JS" required></input>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-3">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- OWN JS -->
+    <script src="./public/js/procesos.js"></script>
+    <!-- B5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 </body>
+
 </html>
