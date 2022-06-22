@@ -37,7 +37,7 @@ procesosPorDefecto();
 const templateProcess = () => {
     cardTemplate.innerHTML = "";
     procesos.forEach((proceso) => {
-        const temp = `
+        cardTemplate.innerHTML += `
         <div
         class="card-procesos d-md-flex p-4 justify-content-between align-items-center my-2">
         <div class="card-procesos__desc me-4">
@@ -74,7 +74,6 @@ const templateProcess = () => {
             </div>
         </div>
     </div>`;
-        cardTemplate.innerHTML += temp;
     });
 }
 

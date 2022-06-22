@@ -35,6 +35,9 @@ nav.navbar {
   line-height: 34px;
   color: #145F6C; }
 
+.section-01__titulo i {
+  cursor: pointer; }
+
 .section-01__bajada {
   font-weight: 600;
   font-size: 18px;
@@ -85,6 +88,12 @@ nav.navbar {
   font-size: 16px;
   line-height: 16px;
   color: #D12E2E; }
+
+.section-01__exito {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: #3bb662; }
 
 @media only screen and (min-width: 1023px) {
   section.section-01 {

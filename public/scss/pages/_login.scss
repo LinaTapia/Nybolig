@@ -28,6 +28,10 @@
         color: $title-color;
     }
 
+    &__titulo i{
+        cursor: pointer;
+    }
+
     &__bajada {
         font-weight: 600;
         font-size: 18px;
@@ -91,6 +95,13 @@
         font-size: 16px;
         line-height: 16px;
         color: #D12E2E;
+    }
+
+    &__exito{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 16px;
+        color: #3bb662;
     }
 }
 
