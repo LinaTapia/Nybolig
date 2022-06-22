@@ -9,11 +9,11 @@ const contadorProcesos = document.getElementById("todos-procesos");
 
 //Clase Constructora Proceso
 class Proceso {
-    constructor(cargo, cliente, requisito) {
+    constructor(cargo, cliente, requisito, activo) {
         this.cargo = cargo.toUpperCase();
         this.cliente = capitalizarCliente(cliente);
         this.requisito = requisito.toUpperCase();
-        this.activo = "Activo";
+        this.activo = activo;
     }
 }
 
@@ -27,9 +27,9 @@ const capitalizarCliente = (cliente) => {
 
 //Función con procesos pre-agregados
 const procesosPorDefecto = () => {
-    procesos.push(new Proceso("Desarrollador Full Stack", "Cencosud", "React JS - Python - MySQL"));
-    procesos.push(new Proceso("Desarrollador Front-End", "Globant", "HTML5 - CSS3 - JS - Bootstrap 5"));
-    procesos.push(new Proceso("Desarrollador Back-End", "Walmart", "Ruby"));
+    procesos.push(new Proceso("Desarrollador Full Stack", "Cencosud", "React JS - Python - MySQL", "Activo"));
+    procesos.push(new Proceso("Desarrollador Front-End", "Globant", "HTML5 - CSS3 - JS - Bootstrap 5", "Cerrado"));
+    procesos.push(new Proceso("Desarrollador Back-End", "Walmart", "Ruby", "Activo"));
 }
 
 procesosPorDefecto();
@@ -80,9 +80,11 @@ const templateProcess = () => {
 //Cargar procesos existentes en la web
 templateProcess();
 
-const agregarProceso = () => {
+const agregarProceso = (e) => {
+    e.preventDefault()
     procesos.push(new Proceso(cargoP.value, clienteP.value, requisitoP.value));
     templateProcess();
+    contarProcesos();
 }
 
 const contarProcesos = () => {
@@ -94,4 +96,5 @@ contarProcesos();
 
 //Envio de formulario
 formularioP.addEventListener("submit", agregarProceso);
-formularioP.addEventListener("submit", contarProcesos);
+
+
