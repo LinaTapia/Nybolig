@@ -50,7 +50,7 @@ const login = () => {
         let buscar = usuarios.find((usuario) => usuario.nombre === usuarioInput.value && usuario.contrasenia === contraInput.value);
         if (buscar !== undefined) {
             mensajeError.innerText = "";
-            botonIniciar.href = "/procesos.html";
+            botonIniciar.href = "./procesos.html";
         } else if (usuarioInput.value == "" || contraInput.value == "") {
             mensajeError.classList.remove("d-none");
             mensajeError.innerText = "";
