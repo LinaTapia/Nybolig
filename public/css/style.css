@@ -10,6 +10,12 @@ nav.navbar {
     font-size: 32px;
     line-height: 39px;
     color: #3BACB6; }
+  nav.navbar h5.navbar-perfil {
+    font-weight: 600;
+    color: #3BACB6; }
+    nav.navbar h5.navbar-perfil span {
+      font-weight: 700;
+      color: #145F6C; }
 
 .section-01__bg {
   width: 100%;

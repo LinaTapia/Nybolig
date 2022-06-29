@@ -7,4 +7,14 @@ nav.navbar {
         line-height: 39px;
         color: #3BACB6;
     }
+
+    h5.navbar-perfil{
+        font-weight: 600;
+        color: #3BACB6;
+
+        span{
+            font-weight: 700;
+            color: $title-color;
+        }
+    }
 }

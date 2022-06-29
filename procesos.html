@@ -20,6 +20,7 @@
         <nav class="navbar">
             <div class="container">
                 <a class="navbar-brand" href="/index.html">NYBOLIG</a>
+                <h5 class="navbar-perfil" id="perfil"></h5>
             </div>
         </nav>
     </header>
@@ -88,13 +89,13 @@
                             <li class="nav-item nav-item--border" role="presentation">
                                 <button class="nav-link" id="activos-tab" data-bs-toggle="tab" data-bs-target="#activos"
                                     type="button" role="tab" aria-controls="activos" aria-selected="false">Activos <span
-                                        class="nav-link__contador nav-link__contador--activos mx-2">1</span></button>
+                                        class="nav-link__contador nav-link__contador--activos mx-2" id="procesos-activos">1</span></button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="cerrados-tab" data-bs-toggle="tab"
                                     data-bs-target="#cerrados" type="button" role="tab" aria-controls="cerrados"
                                     aria-selected="false">Cerrados <span
-                                        class="nav-link__contador nav-link__contador--cerrados mx-2">1</span></button>
+                                        class="nav-link__contador nav-link__contador--cerrados mx-2" id="procesos-cerrados">1</span></button>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -108,7 +109,7 @@
                             </div>
                             <div class="tab-pane fade" id="activos" role="tabpanel" aria-labelledby="activos-tab">
                                 <div class="row mt-4 mt-md-2 mb-4 align-items-center justify-content-center">
-                                    <div class="col-10 col-md-12" id="card-procesos-cerrados">
+                                    <div class="col-10 col-md-12" id="card-procesos-activos">
 
                                     </div>
                                 </div>
@@ -139,19 +140,18 @@
                     <form id="formulario">
                         <div class="mb-3">
                             <label for="cargoP" class="form-label">Cargo</label>
-                            <input class="form-control" type="text" id="cargoP" placeholder="Ej: Desarrollador WEB"
-                                required></input>
+                            <input class="form-control" type="text" id="cargoP" placeholder="Ej: Desarrollador WEB"></input>
                         </div>
                         <div class="mb-3">
                             <label for="clienteP" class="form-label">Cliente</label>
-                            <input class="form-control" type="text" id="clienteP" placeholder="Ej: Coca-Cola"
-                                required></input>
+                            <input class="form-control" type="text" id="clienteP" placeholder="Ej: Coca-Cola"></input>
                         </div>
                         <div class="mb-3">
                             <label for="requisitoP" class="form-label">Requisitos</label>
                             <input class="form-control" type="text" id="requisitoP"
-                                placeholder="Ej: CSS3 - HTML5 - React JS" required></input>
+                                placeholder="Ej: CSS3 - HTML5 - React JS"></input>
                         </div>
+                        <p class="text-center d-none" id="add-error"></p>
                         <button type="submit" class="btn btn-primary mb-3">Guardar</button>
                     </form>
                 </div>

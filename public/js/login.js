@@ -49,8 +49,18 @@ const login = () => {
     const usuarioExiste = () => {
         let buscar = usuarios.find((usuario) => usuario.nombre === usuarioInput.value && usuario.contrasenia === contraInput.value);
         if (buscar !== undefined) {
+            const guardarUsuarioLogeado = () => {
+                const usuarioLogeado = {
+                    usuario: usuarioInput.value
+                }
+
+                sessionStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado));
+            }
+
+            guardarUsuarioLogeado();
             mensajeError.innerText = "";
             botonIniciar.href = "./procesos.html";
+
         } else if (usuarioInput.value == "" || contraInput.value == "") {
             mensajeError.classList.remove("d-none");
             mensajeError.innerText = "";
@@ -134,10 +144,32 @@ const cuenta = () => {
             mensajeError.innerText = "Debes llenar todos los campos.";
 
         } else if (buscar == undefined && crearContra !== "") {
+            const guardarNuevaCuenta = () => {
+                const cuentaCreada = {
+                    usuario: crearUsuario.value,
+                    correo: crearCorreo.value
+                }
+
+                sessionStorage.setItem("cuentaCreada", JSON.stringify(cuentaCreada));
+            }
+
             usuarios.push(new Usuario(crearUsuario.value, crearCorreo.value, crearContra.value));
+
+            guardarNuevaCuenta();
+                    
             login();
         }
     });
+
+    const obtenerCuentaGuardada = () => {
+        if (sessionStorage.getItem("cuentaCreada")) {
+            const cuentaCreada = JSON.parse(sessionStorage.getItem("cuentaCreada"));
+            crearUsuario.value = cuentaCreada.usuario;
+            crearCorreo.value = cuentaCreada.correo;
+        }
+    }
+
+    obtenerCuentaGuardada();
 }
 
 const restablecer = () => {
