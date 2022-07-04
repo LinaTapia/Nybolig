@@ -13,16 +13,17 @@ const tabCerrado = document.getElementById("card-procesos-cerrados");
 
 
 const usuarioLogeado = () => {
-    if (user = JSON.parse(sessionStorage.getItem("usuarioLogeado"))) {
-        if (sessionStorage.getItem("usuarioLogeado")) {
-            const usuarioLogeado = JSON.parse(sessionStorage.getItem("usuarioLogeado"));
-            document.getElementById("perfil").innerHTML = `<span>Usuario:</span> ${usuarioLogeado.usuario}`
-            console.log(usuarioLogeado);
-            console.log("aa");
-        }
+    const usuarioLogeado = JSON.parse(sessionStorage.getItem("usuarioLogeado"));
+
+    const trueCondition = () => {
+        document.getElementById("perfil").innerHTML = `<span>Usuario:</span> ${usuarioLogeado.usuario}`;
     }
+
+    user = JSON.parse(sessionStorage.getItem("usuarioLogeado")) &&
+        sessionStorage.getItem("usuarioLogeado") && trueCondition();
+
 }
-    
+
 
 usuarioLogeado();
 //Clase Constructora Proceso
@@ -51,6 +52,7 @@ const procesosPorDefecto = () => {
 }
 
 procesosPorDefecto();
+
 
 const templateProcess = () => {
     cardTemplate.innerHTML = "";
@@ -101,16 +103,21 @@ templateProcess();
 const agregarProceso = () => {
 
     const mensajeError = document.getElementById("add-error");
-    if (cargoP.value == "" || clienteP.value == "" || requisitoP.value == "") {
+
+    const trueCondition = () => {
         mensajeError.classList.remove("d-none");
         mensajeError.innerText = "";
         mensajeError.innerText = "Debes llenar todos los campos.";
-    } else {
+    }
+
+    const falseCondition = () => {
         procesos.push(new Proceso(cargoP.value, clienteP.value, requisitoP.value, "Activo"));
         templateProcess();
         contarProcesos();
         filtroActivo();
     }
+
+    cargoP.value == "" || clienteP.value == "" || requisitoP.value == "" ? trueCondition() : falseCondition();
 }
 
 const guardarProceso = () => {
@@ -125,12 +132,15 @@ const guardarProceso = () => {
 
 // Se despliega en el formulario los datos del último Proceso guardado al realizar refresh o ingresar nuevamente a la pestaña.
 const obtenerProcesoGuardado = () => {
-    if (localStorage.getItem("datosProceso")) {
-        const datosProcesos = JSON.parse(localStorage.getItem("datosProceso"));
+    const datosProcesos = JSON.parse(localStorage.getItem("datosProceso"));
+
+    const trueCondition = () => {
         cargoP.value = datosProcesos.cargo;
         clienteP.value = datosProcesos.cliente;
         requisitoP.value = datosProcesos.requisito;
     }
+
+    localStorage.getItem("datosProceso") && trueCondition();
 }
 
 obtenerProcesoGuardado();

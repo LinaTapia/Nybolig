@@ -21,6 +21,7 @@ const usuariosPorDefecto = () => {
 
 usuariosPorDefecto();
 
+
 //Función para volver a desplegar formulario de login
 const login = () => {
     formulario.innerHTML = "";
@@ -48,29 +49,35 @@ const login = () => {
 
     const usuarioExiste = () => {
         let buscar = usuarios.find((usuario) => usuario.nombre === usuarioInput.value && usuario.contrasenia === contraInput.value);
-        if (buscar !== undefined) {
+
+        const usuarioValido = () => {
             const guardarUsuarioLogeado = () => {
                 const usuarioLogeado = {
                     usuario: usuarioInput.value
                 }
-
                 sessionStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado));
             }
 
             guardarUsuarioLogeado();
             mensajeError.innerText = "";
             botonIniciar.href = "./procesos.html";
+        }
 
-        } else if (usuarioInput.value == "" || contraInput.value == "") {
+        const llenarCampos = () => {
             mensajeError.classList.remove("d-none");
             mensajeError.innerText = "";
             mensajeError.innerText = "Debes llenar todos los campos.";
+        }
 
-        } else if (buscar == undefined) {
+        const usuarioInvalido = () => {
             mensajeError.classList.remove("d-none");
             mensajeError.innerText = "";
             mensajeError.innerText = "Usuario y/o contraseña incorrectos.";
         }
+
+        buscar !== undefined ? usuarioValido() :
+            usuarioInput.value == "" || contraInput.value == "" ? llenarCampos() :
+            buscar == undefined ? usuarioInvalido() : "";
     }
 
     botonIniciar.addEventListener("click", () => {
@@ -133,17 +140,7 @@ const cuenta = () => {
 
         let buscar = usuarios.find((usuario) => usuario.nombre === crearUsuario.value || usuario.email === crearCorreo.value);
 
-        if (buscar !== undefined) {
-            mensajeError.classList.remove("d-none");
-            mensajeError.innerText = "";
-            mensajeError.innerText = "Usuario y/o Correo ya registrado.";
-
-        } else if (crearUsuario.value == "" || crearCorreo.value == "" || crearContra.value == "") {
-            mensajeError.classList.remove("d-none");
-            mensajeError.innerText = "";
-            mensajeError.innerText = "Debes llenar todos los campos.";
-
-        } else if (buscar == undefined && crearContra !== "") {
+        const usuarioValido = () => {
             const guardarNuevaCuenta = () => {
                 const cuentaCreada = {
                     usuario: crearUsuario.value,
@@ -156,17 +153,36 @@ const cuenta = () => {
             usuarios.push(new Usuario(crearUsuario.value, crearCorreo.value, crearContra.value));
 
             guardarNuevaCuenta();
-                    
+
             login();
         }
+
+        const llenarCampos = () => {
+            mensajeError.classList.remove("d-none");
+            mensajeError.innerText = "";
+            mensajeError.innerText = "Debes llenar todos los campos.";
+        }
+
+        const usuarioInvalido = () => {
+            mensajeError.classList.remove("d-none");
+            mensajeError.innerText = "";
+            mensajeError.innerText = "Usuario y/o Correo ya registrado.";
+        }
+
+        buscar !== undefined ? usuarioInvalido() :
+            crearUsuario.value == "" || crearCorreo.value == "" || crearContra.value == "" ? llenarCampos() :
+            buscar == undefined && crearContra !== "" ? usuarioValido() : "";
     });
 
     const obtenerCuentaGuardada = () => {
-        if (sessionStorage.getItem("cuentaCreada")) {
-            const cuentaCreada = JSON.parse(sessionStorage.getItem("cuentaCreada"));
+        const cuentaCreada = JSON.parse(sessionStorage.getItem("cuentaCreada"));
+
+        const trueCondition = () => {
             crearUsuario.value = cuentaCreada.usuario;
             crearCorreo.value = cuentaCreada.correo;
         }
+
+        sessionStorage.getItem("cuentaCreada") && trueCondition();
     }
 
     obtenerCuentaGuardada();
@@ -228,7 +244,7 @@ const restablecer = () => {
 
         let buscar = usuarios.find((usuario) => usuario.email === inputCorreo.value && usuario.contrasenia === inputContra.value);
 
-        if (buscar !== undefined) {
+        const usuarioValido = () => {
             formulario.innerHTML = "";
             formulario.innerHTML += tempNuevaContrasenia;
             // Constantes cambiar la contraseña
@@ -244,42 +260,56 @@ const restablecer = () => {
             });
 
             confBoton.addEventListener("click", () => {
-                if (inputContraNueva.value == buscar.contrasenia) {
+
+                const contraseñasNueva = () => {
                     mensajeError2.classList.remove("d-none");
                     mensajeError2.innerText = "";
                     mensajeError2.innerText = "La contraseña actual debe ser distinta a la anterior.";
+                }
 
-                } else if (inputContraNueva.value == "" || inputContraConf.value == "") {
+                const llenarCampos = () => {
                     mensajeError2.classList.remove("d-none");
                     mensajeError2.innerText = "";
                     mensajeError2.innerText = "Debes llenar todos los campos.";
+                }
 
-                } else if (inputContraNueva.value !== inputContraConf.value) {
+                const contraseñasIguales = () => {
                     mensajeError2.classList.remove("d-none");
                     mensajeError2.innerText = "";
                     mensajeError2.innerText = "Las contraseñas deben ser idénticas.";
+                }
 
-                } else if (inputContraNueva.value !== buscar.contrasenia && inputContraConf.value == inputContraNueva.value) {
+                const contraseñaValida = () => {
                     mensajeExito.classList.remove("d-none");
                     mensajeError2.innerText = "";
                     mensajeExito.innerText = "Contraseña modificada correctamente.";
                     buscar.contrasenia = inputContraNueva.value;
                 }
+
+                inputContraNueva.value == buscar.contrasenia ? contraseñasNueva() :
+                inputContraNueva.value == "" || inputContraConf.value == "" ? llenarCampos() :
+                inputContraNueva.value !== inputContraConf.value ? contraseñasIguales() :
+                inputContraNueva.value !== buscar.contrasenia && inputContraConf.value == inputContraNueva.value ? contraseñaValida() : "";
             });
-        } else if (inputCorreo.value == "" || inputContra.value == "") {
+        }
+
+        const llenarCampos = () => {
             mensajeError.classList.remove("d-none");
             mensajeError.innerText = "";
             mensajeError.innerText = "Debes llenar todos los campos.";
+        }
 
-        } else if (buscar == undefined) {
+        const usuarioInvalido = () => {
             mensajeError.classList.remove("d-none");
             mensajeError.innerText = "";
             mensajeError.innerText = "Correo y/o contraseña incorrectos.";
         }
+
+        buscar !== undefined ? usuarioValido() :
+            inputCorreo.value == "" || inputContra.value == "" ? llenarCampos() :
+            buscar == undefined ? usuarioInvalido() : "";
     });
 }
-
-
 
 // Iniciar con el formulario de login al cargar la página
 window.addEventListener("DOMContentLoaded", () => {
