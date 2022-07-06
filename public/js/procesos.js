@@ -268,7 +268,7 @@ const alertaExito = () => {
         position: 'top',
         icon: 'success',
         title: 'Proceso agregado correctamente.',
-        showConfirmButton: false,
+        confirmButtonColor: '#34BE82',
         timer: 1500
       })
 }
