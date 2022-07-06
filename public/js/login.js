@@ -281,7 +281,7 @@ const restablecer = () => {
         }
 
         const usuarioInvalido = () => {
-            alertErrores("Usuario y/o Correo ya registrado.");
+            alertErrores("El Usuario no existe.");
         }
 
         buscar !== undefined ? usuarioValido() :
