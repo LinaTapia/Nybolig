@@ -115,6 +115,7 @@ const agregarProceso = () => {
         templateProcess();
         contarProcesos();
         filtroActivo();
+        alertaExito();
     }
 
     cargoP.value == "" || clienteP.value == "" || requisitoP.value == "" ? trueCondition() : falseCondition();
@@ -260,3 +261,14 @@ const filtroCerrado = () => {
 }
 
 filtroCerrado();
+
+//Alerta 
+const alertaExito = () => {
+    Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: 'Proceso agregado correctamente.',
+        showConfirmButton: false,
+        timer: 1500
+      })
+}

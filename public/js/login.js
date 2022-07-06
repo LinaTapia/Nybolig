@@ -64,15 +64,11 @@ const login = () => {
         }
 
         const llenarCampos = () => {
-            mensajeError.classList.remove("d-none");
-            mensajeError.innerText = "";
-            mensajeError.innerText = "Debes llenar todos los campos.";
+            alertAdvertencia("Debes llenar todos los campos.");
         }
 
         const usuarioInvalido = () => {
-            mensajeError.classList.remove("d-none");
-            mensajeError.innerText = "";
-            mensajeError.innerText = "Usuario y/o contraseña incorrectos.";
+            alertErrores("Usuario y/o contraseña incorrectos.");
         }
 
         buscar !== undefined ? usuarioValido() :
@@ -153,20 +149,15 @@ const cuenta = () => {
             usuarios.push(new Usuario(crearUsuario.value, crearCorreo.value, crearContra.value));
 
             guardarNuevaCuenta();
-
-            login();
+            alertExito("Cuenta creada correctamente.", login());
         }
 
         const llenarCampos = () => {
-            mensajeError.classList.remove("d-none");
-            mensajeError.innerText = "";
-            mensajeError.innerText = "Debes llenar todos los campos.";
+            alertAdvertencia("Debes llenar todos los campos.");
         }
 
         const usuarioInvalido = () => {
-            mensajeError.classList.remove("d-none");
-            mensajeError.innerText = "";
-            mensajeError.innerText = "Usuario y/o Correo ya registrado.";
+            alertErrores("Usuario y/o Correo ya registrado.");
         }
 
         buscar !== undefined ? usuarioInvalido() :
@@ -262,47 +253,35 @@ const restablecer = () => {
             confBoton.addEventListener("click", () => {
 
                 const contraseñasNueva = () => {
-                    mensajeError2.classList.remove("d-none");
-                    mensajeError2.innerText = "";
-                    mensajeError2.innerText = "La contraseña actual debe ser distinta a la anterior.";
+                    alertAdvertencia("La contraseña actual debe ser distinta a la anterior.");
                 }
 
                 const llenarCampos = () => {
-                    mensajeError2.classList.remove("d-none");
-                    mensajeError2.innerText = "";
-                    mensajeError2.innerText = "Debes llenar todos los campos.";
+                    alertAdvertencia("Debes llenar todos los campos.");
                 }
 
                 const contraseñasIguales = () => {
-                    mensajeError2.classList.remove("d-none");
-                    mensajeError2.innerText = "";
-                    mensajeError2.innerText = "Las contraseñas deben ser idénticas.";
+                    alertErrores("Las contraseñas deben ser idénticas.");
                 }
 
                 const contraseñaValida = () => {
-                    mensajeExito.classList.remove("d-none");
-                    mensajeError2.innerText = "";
-                    mensajeExito.innerText = "Contraseña modificada correctamente.";
                     buscar.contrasenia = inputContraNueva.value;
+                    alertExito("Contraseña modificada correctamente.", login());
                 }
 
                 inputContraNueva.value == buscar.contrasenia ? contraseñasNueva() :
-                inputContraNueva.value == "" || inputContraConf.value == "" ? llenarCampos() :
-                inputContraNueva.value !== inputContraConf.value ? contraseñasIguales() :
-                inputContraNueva.value !== buscar.contrasenia && inputContraConf.value == inputContraNueva.value ? contraseñaValida() : "";
+                    inputContraNueva.value == "" || inputContraConf.value == "" ? llenarCampos() :
+                    inputContraNueva.value !== inputContraConf.value ? contraseñasIguales() :
+                    inputContraNueva.value !== buscar.contrasenia && inputContraConf.value == inputContraNueva.value ? contraseñaValida() : "";
             });
         }
 
         const llenarCampos = () => {
-            mensajeError.classList.remove("d-none");
-            mensajeError.innerText = "";
-            mensajeError.innerText = "Debes llenar todos los campos.";
+            alertAdvertencia("Debes llenar todos los campos.");
         }
 
         const usuarioInvalido = () => {
-            mensajeError.classList.remove("d-none");
-            mensajeError.innerText = "";
-            mensajeError.innerText = "Correo y/o contraseña incorrectos.";
+            alertErrores("Usuario y/o Correo ya registrado.");
         }
 
         buscar !== undefined ? usuarioValido() :
@@ -315,3 +294,67 @@ const restablecer = () => {
 window.addEventListener("DOMContentLoaded", () => {
     login();
 });
+
+//Alertas
+const alertAdvertencia = (mensaje) => {
+    Swal.fire({
+        toast: true,
+        timer: 3000,
+        showConfirmButton: false,
+        icon: 'warning',
+        iconColor: '#ffffff',
+        title: mensaje,
+        position: 'center-end',
+        padding: '0.85em 0 0.85em 0.85em',
+        background: '#FFBD35',
+        color: '#ffffff',
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+}
+
+const alertErrores = (mensaje) => {
+    Swal.fire({
+        toast: true,
+        timer: 3000,
+        showConfirmButton: false,
+        icon: 'error',
+        iconColor: '#ffffff',
+        title: mensaje,
+        position: 'center-end',
+        padding: '0.85em 0 0.85em 0.85em',
+        background: '#F94C66',
+        color: '#ffffff',
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+}
+
+const alertExito = (mensaje) => {
+    Swal.fire({
+        toast: true,
+        timer: 3000,
+        showConfirmButton: false,
+        icon: 'success',
+        iconColor: '#ffffff',
+        title: mensaje,
+        position: 'center-end',
+        padding: '0.85em 0 0.85em 0.85em',
+        background: '#34BE82',
+        color: '#ffffff',
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+}

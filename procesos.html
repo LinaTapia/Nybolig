@@ -11,6 +11,8 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- B5 Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <!-- Sweet Alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- CSS Propio -->
     <link rel="stylesheet" href="./public/css/style.css">
 </head>
@@ -89,13 +91,15 @@
                             <li class="nav-item nav-item--border" role="presentation">
                                 <button class="nav-link" id="activos-tab" data-bs-toggle="tab" data-bs-target="#activos"
                                     type="button" role="tab" aria-controls="activos" aria-selected="false">Activos <span
-                                        class="nav-link__contador nav-link__contador--activos mx-2" id="procesos-activos">1</span></button>
+                                        class="nav-link__contador nav-link__contador--activos mx-2"
+                                        id="procesos-activos">1</span></button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="cerrados-tab" data-bs-toggle="tab"
                                     data-bs-target="#cerrados" type="button" role="tab" aria-controls="cerrados"
                                     aria-selected="false">Cerrados <span
-                                        class="nav-link__contador nav-link__contador--cerrados mx-2" id="procesos-cerrados">1</span></button>
+                                        class="nav-link__contador nav-link__contador--cerrados mx-2"
+                                        id="procesos-cerrados">1</span></button>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -140,7 +144,8 @@
                     <form id="formulario">
                         <div class="mb-3">
                             <label for="cargoP" class="form-label">Cargo</label>
-                            <input class="form-control" type="text" id="cargoP" placeholder="Ej: Desarrollador WEB"></input>
+                            <input class="form-control" type="text" id="cargoP"
+                                placeholder="Ej: Desarrollador WEB"></input>
                         </div>
                         <div class="mb-3">
                             <label for="clienteP" class="form-label">Cliente</label>
