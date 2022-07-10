@@ -1,8 +1,6 @@
-const URL = `/public/js/candidatos.json`;
-
 const listado = document.getElementById("candidatos-lista");
 
-const obtenerData2 = async () => {
+const obtenerData = async () => {
     const ruta = await fetch('/public/js/candidatos.json');
     const data = await ruta.json();
     listado.innerHTML = "";
@@ -21,6 +19,6 @@ const obtenerData2 = async () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
-        obtenerData2(URL)
+        obtenerData(URL)
     }, 500);
 })
