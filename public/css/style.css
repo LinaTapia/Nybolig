@@ -16,6 +16,11 @@ nav.navbar {
     nav.navbar h5.navbar-perfil span {
       font-weight: 700;
       color: #145F6C; }
+  nav.navbar a.navbar-link {
+    font-weight: 700;
+    font-size: 18px;
+    color: #3BACB6;
+    text-decoration: none; }
 
 .section-01__bg {
   width: 100%;
@@ -236,3 +241,10 @@ nav.navbar {
     color: #000000;
     text-transform: uppercase;
     margin-top: 40px; }
+
+.section-01 .table-striped > tbody > tr {
+  color: #25868f; }
+
+.section-01 .table {
+  color: #00727c;
+  vertical-align: inherit; }

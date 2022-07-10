@@ -17,4 +17,11 @@ nav.navbar {
             color: $title-color;
         }
     }
+
+    a.navbar-link{
+        font-weight: 700;
+        font-size: 18px;
+        color: #3BACB6;
+        text-decoration: none;
+    }
 }
