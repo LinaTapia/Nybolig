@@ -127,7 +127,6 @@ const cuenta = () => {
     const crearUsuario = document.getElementById("usuarioNuevo");
     const crearCorreo = document.getElementById("correoNuevo");
     const crearContra = document.getElementById("contraseniaNuevo");
-    const mensajeError = document.getElementById("error");
     const redirect = document.getElementById("redirect");
 
     redirect.addEventListener("click", () => {
@@ -226,7 +225,6 @@ const restablecer = () => {
     const contBoton = document.getElementById("boton-continuar");
     const inputCorreo = document.getElementById("ResCorreo");
     const inputContra = document.getElementById("ResContrasenia");
-    const mensajeError = document.getElementById("ResError");
     const redirect = document.getElementById("redirect");
 
     redirect.addEventListener("click", () => {
@@ -244,8 +242,6 @@ const restablecer = () => {
             const inputContraNueva = document.getElementById("contraseniaNueva");
             const inputContraConf = document.getElementById("confirmarContrasenia");
             const confBoton = document.getElementById("boton-confirmar");
-            const mensajeError2 = document.getElementById("ResError2");
-            const mensajeExito = document.getElementById("exito");
             const redirect = document.getElementById("redirect");
 
             redirect.addEventListener("click", () => {

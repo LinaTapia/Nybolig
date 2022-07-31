@@ -1,0 +1,46 @@
+[{
+        "id": 1,
+        "imagen": "public/img/person.svg",
+        "nombre": "Francisco Ortiz",
+        "perfil": "Desarrollador Full Stack",
+        "contacto": "francisco@gmail.com",
+        "experiencia": "5 años",
+        "linkedln": "https://cl.linkedin.com/"
+    },
+    {
+        "id": 2,
+        "imagen": "public/img/person.svg",
+        "nombre": "Rolando Tapia",
+        "perfil": "Desarrollador Front-End",
+        "contacto": "rolando@gmail.com",
+        "experiencia": "8 años",
+        "linkedln": "https://cl.linkedin.com/"
+    },
+    {
+        "id": 3,
+        "imagen": "public/img/person.svg",
+        "nombre": "Patricio Alvarez",
+        "perfil": "Desarrollador Back-End",
+        "contacto": "patricio@gmail.com",
+        "experiencia": "2 años",
+        "linkedln": "https://cl.linkedin.com/"
+    },
+    {
+        "id": 4,
+        "imagen": "public/img/person.svg",
+        "nombre": "Francisca Adriazola",
+        "perfil": "Machine Learning",
+        "contacto": "francisca@gmail.com",
+        "experiencia": "3 años",
+        "linkedln": "https://cl.linkedin.com/"
+    },
+    {
+        "id": 5,
+        "imagen": "public/img/person.svg",
+        "nombre": "Luis Rodriguez",
+        "perfil": "Desarrollador Full Stack",
+        "contacto": "luis@gmail.com",
+        "experiencia": "1 año",
+        "linkedln": "https://cl.linkedin.com/"
+    }
+]
