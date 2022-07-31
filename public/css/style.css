@@ -241,6 +241,10 @@ nav.navbar {
     color: #000000;
     text-transform: uppercase;
     margin-top: 40px; }
+  .section-procesos .card-procesos__notfound {
+    font-weight: 700;
+    font-size: 20px;
+    color: #145F6C; }
 
 .section-01 .table-striped > tbody > tr {
   color: #25868f; }
@@ -248,3 +252,32 @@ nav.navbar {
 .section-01 .table {
   color: #00727c;
   vertical-align: inherit; }
+
+.contacto__img {
+  width: 100%; }
+
+.contacto__btn {
+  background: #3BACB6;
+  border-radius: 50px;
+  border: 1px solid #3BACB6;
+  width: 125px;
+  height: 40px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 18px;
+  color: #FFFFFF; }
+  .contacto__btn:hover {
+    background: transparent;
+    color: #3BACB6; }
+
+.contacto__titulo {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 25px;
+  color: #145F6C; }
+
+.contacto__label {
+  font-weight: 600;
+  color: #145F6C;
+  font-size: 18px;
+  line-height: 18px; }

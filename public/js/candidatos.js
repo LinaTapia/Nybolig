@@ -21,4 +21,4 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         obtenerData()
     }, 500);
-})
+});

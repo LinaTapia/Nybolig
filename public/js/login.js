@@ -1,12 +1,14 @@
 //Contenedor de los fomularios login - crear cuenta y actualiza contraseña.
 const formulario = document.getElementById("contenedor-formulario");
 
+let idIncrement = 1;
 // Clase constructora Usuario
 class Usuario {
     constructor(nombre, email, contrasenia) {
         this.nombre = nombre;
         this.email = email;
         this.contrasenia = contrasenia;
+        this.id = idIncrement++;
     }
 }
 
@@ -15,8 +17,8 @@ const usuarios = [];
 
 //Función con cuentas ya existentes en la Base de datos
 const usuariosPorDefecto = () => {
-    usuarios.push(new Usuario("admin123", "admin@gmail.com", "admin123"));
-    usuarios.push(new Usuario("coder123", "coder@gmail.com", "house123"));
+    usuarios.push(new Usuario("admin123", "admin@gmail.com", "admin123", 1));
+    usuarios.push(new Usuario("coder123", "coder@gmail.com", "house123", 2));
 }
 
 usuariosPorDefecto();
@@ -49,11 +51,11 @@ const login = () => {
 
     const usuarioExiste = () => {
         let buscar = usuarios.find((usuario) => usuario.nombre === usuarioInput.value && usuario.contrasenia === contraInput.value);
-
         const usuarioValido = () => {
             const guardarUsuarioLogeado = () => {
                 const usuarioLogeado = {
-                    usuario: usuarioInput.value
+                    usuario: usuarioInput.value,
+                    id: buscar.id
                 }
                 sessionStorage.setItem("usuarioLogeado", JSON.stringify(usuarioLogeado));
             }
@@ -140,7 +142,7 @@ const cuenta = () => {
             const guardarNuevaCuenta = () => {
                 const cuentaCreada = {
                     usuario: crearUsuario.value,
-                    correo: crearCorreo.value
+                    correo: crearCorreo.value,
                 }
 
                 sessionStorage.setItem("cuentaCreada", JSON.stringify(cuentaCreada));

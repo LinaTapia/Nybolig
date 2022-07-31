@@ -1,0 +1,36 @@
+.contacto {
+    &__img {
+        width: 100%;
+    }
+
+    &__btn {
+        background: $btn-color;
+        border-radius: 50px;
+        border: 1px solid $btn-color;
+        width: 125px;
+        height: 40px;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 18px;
+        color: #FFFFFF;
+
+        &:hover {
+            background: transparent;
+            color: $btn-color;
+        }
+    }
+
+    &__titulo {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 25px;
+        color: $title-color;
+    }
+
+    &__label {
+        font-weight: 600;
+        color: $title-color;
+        font-size: 18px;
+        line-height: 18px;
+    }
+}
