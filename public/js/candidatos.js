@@ -1,7 +1,7 @@
 const listado = document.getElementById("candidatos-lista");
 
 const obtenerData = async () => {
-    const ruta = await fetch('https://linatapia.github.io/Nybolig/public/js/candidatos.json');
+    const ruta = await fetch('./public/js/candidatos.json');
     const data = await ruta.json();
     listado.innerHTML = "";
 
